@@ -1,4 +1,4 @@
-name: Build pyquasoare
+name: Run the fast data morph script
 
 on: [push]
 
