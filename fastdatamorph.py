@@ -94,7 +94,9 @@ def correct_correlation(x, y, rho):
     r = rho/c
     D = 4*r**4*(c**2-1)**2-4*(1-r**2)*(c**2-1)*r**2
     a = r**2*(c**2-1)/(1-r**2)+math.sqrt(D)/2/(1-r**2)
-    ystar = y.mean()+y.std()*(a*c*xs+(1-a)*(ys-c*xs))
+    ys = (a*c*xs+(1-a)*(ys-c*xs))
+    ys /= ys.std()
+    ystar = y.mean()+y.std()*ys
     return ystar
 
 ysrc = correct_correlation(xsrc, ysrc, rho)
@@ -131,20 +133,24 @@ fig, axs = plt.subplots(ncols=5, nrows=5, \
                 layout="constrained")
 
 for iax, ax in enumerate(axs.flat):
-    u, v = xp[:, 1+iax], yp[:, iax]
+    # Plot points
+    u, v = xp[:, iax], yp[:, iax]
     ax.plot(u, v, "o")
 
+    # Compute stats
     um, vm = u.mean(), v.mean()
     us, vs = u.std(), v.std()
     rho = np.corrcoef(u, v)[0, 1]
+
+    # Show stats
     txt = f"X: {um:0.2f} {us:0.2f}\n"\
             +f"Y: {vm:0.2f} {vs:0.2f}\n"\
-            +f"R: {rho:0.2f}"
-
+            +f"C: {rho:0.2f}"
     ax.text(um, vm, txt, va="center", \
                 ha="center", \
-                fontsize=6, \
-                path_effects=[pe.withStroke(linewidth=4, foreground="w")])
+                fontsize=8, \
+                path_effects=[pe.withStroke(linewidth=4, alpha=0.6, foreground="w")])
+
     ax.axis("off")
 
 fp = froot / "results.png"
