@@ -9,7 +9,7 @@
 ##           as presented by Stefanie Mollin at PyCon 2024:
 ##           https://2024.pycon.org.au/program/3JHULA/
 ##
-##           Stephanie Mollin algorithm relies on simulated annealing
+##           Stefanie Mollin algorithm relies on simulated annealing
 ##           optimisation technique. Here a variant of the algorithm is
 ##           proposed without using optimisation:
 ##
@@ -20,7 +20,7 @@
 ##              linear combinations of source and target with weights
 ##              varying progressively from 0 (=source) to 1 (=target)
 ##
-##           3. Pearson correlation is finally adjusted for each intermiediate
+##           3. Pearson correlation is finally adjusted for each intermediate
 ##              state by realigning the set of points so that their
 ##              pearson correlation remains identical to the one of the target
 ##
