@@ -6,7 +6,7 @@
 ## Created : 2024-11-22 15:35:40.488686
 ## Comment : The morph algorithm aims at transforming a set of 2D
 ##           points while preserving means, stds and pearson correlation
-##           as presented by Stephanie Mollin at PyCon 2024:
+##           as presented by Stefanie Mollin at PyCon 2024:
 ##           https://2024.pycon.org.au/program/3JHULA/
 ##
 ##           Stephanie Mollin algorithm relies on simulated annealing
